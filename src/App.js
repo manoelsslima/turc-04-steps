@@ -7,6 +7,14 @@ const messages = [
 export default function App() {
   const step = 1;
 
+  function handlePrevious() {
+    alert("Previous");
+  }
+
+  function handleNext() {
+    alert("Next");
+  }
+
   return (
     <div className="steps">
       <div className="numbers">
@@ -20,10 +28,19 @@ export default function App() {
       </p>
 
       <div className="buttons">
-        <button style={{ backgroundColor: "#7950f2", color: "#FFF" }}>
+        <button
+          style={{ backgroundColor: "#7950f2", color: "#FFF" }}
+          // we cannot call the function direct
+          // we just pass the function value. We don't call it
+          // onClick={() => alert("Previous")}
+          onClick={() => handlePrevious()}
+        >
           Previous
         </button>
-        <button style={{ backgroundColor: "#7950f2", color: "#FFF" }}>
+        <button
+          style={{ backgroundColor: "#7950f2", color: "#FFF" }}
+          onClick={() => handleNext()}
+        >
           Next
         </button>
       </div>
