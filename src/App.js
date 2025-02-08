@@ -12,6 +12,7 @@ export default function App() {
   // returns an array with two items. 1) the default value of the stae
   // 2) a function to update this value. It's common to destructure the
   // array. We can only call hooks at the top level of the function
+  // Do not use State for data that shouldn't trigger component re-renders
   const [step, setStep] = useState(1);
   const [isOpen, setIsOpen] = useState(true);
 
