@@ -7,6 +7,14 @@ const messages = [
 ];
 
 export default function App() {
+  return (
+    <div>
+      <Steps />
+    </div>
+  );
+}
+
+function Steps() {
   // hooks in React are prefixed with "use", so useState is a hook.
   // the argument is the default value of the state variable
   // returns an array with two items. 1) the default value of the stae
@@ -47,24 +55,41 @@ export default function App() {
           </p>
 
           <div className="buttons">
-            <button
-              style={{ backgroundColor: "#7950f2", color: "#FFF" }}
-              // we cannot call the function direct
-              // we just pass the function value. We don't call it
-              // onClick={() => alert("Previous")}
-              onClick={() => handlePrevious()}
+            <Button
+              backgroundColor="#7950f2"
+              textColor="#FFF"
+              onClick={handlePrevious}
             >
-              Previous
-            </button>
-            <button
-              style={{ backgroundColor: "#7950f2", color: "#FFF" }}
-              onClick={() => handleNext()}
+              <span>👈</span> Previus
+            </Button>
+            <Button
+              backgroundColor="#7950f2"
+              textColor="#FFF"
+              onClick={handleNext}
             >
-              Next
-            </button>
+              Next <span>👉</span>
+            </Button>
           </div>
         </div>
       )}
     </>
+  );
+}
+
+/**
+ * Child props is a props that each React component automatically receives.
+ * The value of the children props is what is between the opening and enclosing tag
+ * We must use the key-word "children" to receive the children props.
+ * Ex.: props.children or we can destructure {children}
+ * It's useful for modals
+ */
+function Button({ backgroundColor, textColor, onClick, children }) {
+  return (
+    <button
+      style={{ backgroundColor: backgroundColor, color: textColor }}
+      onClick={onClick}
+    >
+      {children}
+    </button>
   );
 }
